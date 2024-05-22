@@ -25,11 +25,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(
+            const Padding(
                 padding: EdgeInsets.all(35.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const <Widget>[
+                    children: <Widget>[
                       Text(
                         'Aqui va el titulo',
                         style: TextStyle(fontSize: 25),
