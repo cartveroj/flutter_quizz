@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizz_app/model/list_questions.dart';
+import 'package:quizz_app/pages/end_page.dart';
 import 'package:quizz_app/pages/result_page.dart';
 import 'package:quizz_app/widgets/answer_card.dart';
 
@@ -70,7 +71,7 @@ class _QuizzPageState extends State<QuizzPage> {
                 ? FloatingActionButton.extended(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (_) => ResultPage()));
+                          MaterialPageRoute(builder: (_) => EndPage()));
                     },
                     label: const Text("Finish"))
                 : FloatingActionButton.extended(
