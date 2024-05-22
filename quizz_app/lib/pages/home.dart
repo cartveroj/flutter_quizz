@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizz_app/pages/end_page.dart';
 
 //usamos Stateful y createState por si se quiere añadir elementos
 class MyHomePage extends StatefulWidget {
@@ -58,6 +59,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                         // Aquí puedes definir lo que sucede cuando el botón es presionado
                                         print(
                                             'Botón ${item[index]} presionado');
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => EndPage(),
+                                          ),
+                                        );
                                       },
                                       child: Text(item[index]),
                                     ),
