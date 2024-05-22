@@ -32,7 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Text(
                         'Aqui va el titulo',
-                        style: TextStyle(fontSize: 25),
+                        style: TextStyle(
+                            fontSize: 28, fontWeight: FontWeight.w500),
                       ),
                       Text(
                         'un poco de texto',
