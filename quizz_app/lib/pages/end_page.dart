@@ -27,7 +27,7 @@ class EndPage extends StatelessWidget {
               width: 250,
               child: CircularProgressIndicator(
                 strokeWidth: 10,
-                value: score / 9,
+                value: score / 3,
                 color: Colors.green,
                 backgroundColor: Colors.white,
               ),

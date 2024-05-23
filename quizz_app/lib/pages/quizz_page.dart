@@ -47,7 +47,9 @@ class _QuizPageState extends State<QuizPage> {
     bool isLastQuestion = questionIndex == questions.length - 1;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Quiz Game')),
+      appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: const Text('Quiz Game')),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(

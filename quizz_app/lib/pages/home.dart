@@ -18,26 +18,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const SizedBox(height: 30),
             const Padding(
                 padding: EdgeInsets.all(35.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Aqui va el titulo',
+                        'QUIZZ GAME',
                         style: TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.w500),
+                            fontSize: 30,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Roboto'),
                       ),
                       Text(
-                        'un poco de texto',
+                        '¡Selecciona un test y demuestra lo que sabes!',
                         style: TextStyle(fontSize: 14),
                       )
                     ])),
