@@ -1,41 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:quizz_app/model/list_questions.dart';
-import 'package:quizz_app/pages/result_page.dart';
+import 'package:quizz_app/pages/end_page.dart';
 import 'package:quizz_app/widgets/answer_card.dart';
 
-class QuizzPage extends StatefulWidget {
-  const QuizzPage({super.key});
+class QuizPage extends StatefulWidget {
+  const QuizPage({super.key});
 
   @override
-  State<QuizzPage> createState() => _QuizzPageState();
+  State<QuizPage> createState() => _QuizPageState();
 }
 
-class _QuizzPageState extends State<QuizzPage> {
+class _QuizPageState extends State<QuizPage> {
   int? selectedAnswerIndex;
   int questionIndex = 0;
   int score = 0;
 
-  void pickedAnswerQuestion(int value) {
-    selectedAnswerIndex = value;
-    final question = questions[questionIndex];
-    if (selectedAnswerIndex == question.correctAnswerIndex) {
-      score++;
-    }
-    setState(() {});
+  void pickedAnswer(int value) {
+    setState(() {
+      selectedAnswerIndex = value;
+      final question = questions[questionIndex];
+      if (selectedAnswerIndex == question.correctAnswerIndex) {
+        score++;
+      }
+    });
   }
 
   void goToNextQuestion() {
     if (questionIndex < questions.length - 1) {
-      questionIndex++;
-      selectedAnswerIndex = null;
+      setState(() {
+        questionIndex++;
+        selectedAnswerIndex = null;
+      });
+    } else {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+            builder: (_) => EndPage(
+                  score: score,
+                )),
+      );
     }
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final pregunta = questions[0];
+    final pregunta = questions[questionIndex];
     bool isLastQuestion = questionIndex == questions.length - 1;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Quiz Game')),
       body: Padding(
@@ -51,33 +61,27 @@ class _QuizzPageState extends State<QuizzPage> {
               textAlign: TextAlign.center,
             ),
             ListView.builder(
-                shrinkWrap: true,
-                itemCount: pregunta.options.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: selectedAnswerIndex == null
-                        ? () => pickedAnswerQuestion(index)
-                        : null,
-                    child: AnswerCard(
-                        question: pregunta.options[index],
-                        isSelected: false,
-                        currentIndex: index,
-                        correctAnswerIndex: pregunta.correctAnswerIndex,
-                        selectedAnswerIndex: 0),
-                  );
-                }),
-            isLastQuestion
-                ? FloatingActionButton.extended(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (_) => ResultPage()));
-                    },
-                    label: const Text("Finish"))
-                : FloatingActionButton.extended(
-                    onPressed: () {
-                      selectedAnswerIndex != null ? goToNextQuestion() : null;
-                    },
-                    label: const Text("Next"))
+              shrinkWrap: true,
+              itemCount: pregunta.options.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: selectedAnswerIndex == null
+                      ? () => pickedAnswer(index)
+                      : null,
+                  child: AnswerCard(
+                    question: pregunta.options[index],
+                    isSelected: selectedAnswerIndex == index,
+                    currentIndex: index,
+                    correctAnswerIndex: pregunta.correctAnswerIndex,
+                    selectedAnswerIndex: selectedAnswerIndex,
+                  ),
+                );
+              },
+            ),
+            FloatingActionButton.extended(
+              onPressed: selectedAnswerIndex != null ? goToNextQuestion : null,
+              label: Text(isLastQuestion ? "Finish" : "Next"),
+            ),
           ],
         ),
       ),
