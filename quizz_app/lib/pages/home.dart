@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizz_app/pages/quizz_page.dart';
 
 //usamos Stateful y createState por si se quiere añadir elementos
 class MyHomePage extends StatefulWidget {
@@ -25,14 +26,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(
+            const Padding(
                 padding: EdgeInsets.all(35.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const <Widget>[
+                    children: <Widget>[
                       Text(
                         'Aqui va el titulo',
-                        style: TextStyle(fontSize: 25),
+                        style: TextStyle(
+                            fontSize: 28, fontWeight: FontWeight.w500),
                       ),
                       Text(
                         'un poco de texto',
@@ -57,6 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                         // Aquí puedes definir lo que sucede cuando el botón es presionado
                                         print(
                                             'Botón ${item[index]} presionado');
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const QuizPage(),
+                                          ),
+                                        );
                                       },
                                       child: Text(item[index]),
                                     ),
