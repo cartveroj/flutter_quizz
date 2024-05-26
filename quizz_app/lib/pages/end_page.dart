@@ -55,16 +55,19 @@ class EndPage extends StatelessWidget {
         //   ),
         // ),
         //const Expanded(child: Center(child: Text('Texto en el medio'))),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const MyHomePage(title: 'Flutter Quizz'),
-              ),
-            );
-          },
-          child: const Text('Volver a inicio'),
-        ),
+        Padding(
+            padding: const EdgeInsets.all(28.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MyHomePage(title: 'Flutter Quizz'),
+                  ),
+                );
+              },
+              child: const Text('Volver a inicio'),
+            )),
       ],
     ));
   }
