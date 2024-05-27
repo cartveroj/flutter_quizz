@@ -18,7 +18,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+        body: Container(
+      color: const Color.fromARGB(255, 100, 104, 129),
+      child: Center(
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -33,11 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w800,
-                            fontFamily: 'Roboto'),
+                            fontFamily: 'Roboto',
+                            color: Colors.white),
                       ),
                       Text(
                         '¡Selecciona un test y demuestra lo que sabes!',
-                        style: TextStyle(fontSize: 14),
+                        style: TextStyle(fontSize: 14, color: Colors.white),
                       )
                     ])),
             Expanded(
@@ -72,6 +75,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-    );
+    ));
   }
 }

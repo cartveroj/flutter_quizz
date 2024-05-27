@@ -23,10 +23,10 @@ class AnswerCard extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: 10.0,
+        vertical: 6.0,
       ),
       child: Container(
-        height: 70,
+        /* height: , */
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: Colors.white10,
