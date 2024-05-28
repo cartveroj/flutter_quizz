@@ -47,7 +47,9 @@ class _QuizPageState extends State<QuizPage> {
     bool isLastQuestion = questionIndex == questions.length - 1;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Quiz Game')),
+      appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: const Text('Quiz Game')),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
@@ -60,8 +62,10 @@ class _QuizPageState extends State<QuizPage> {
               ),
               textAlign: TextAlign.center,
             ),
-            ListView.builder(
-              shrinkWrap: true,
+            const SizedBox(height: 16),
+            Expanded(
+                child: ListView.builder(
+              /* shrinkWrap: true, */
               itemCount: pregunta.options.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
@@ -77,7 +81,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 );
               },
-            ),
+            )),
             FloatingActionButton.extended(
               onPressed: selectedAnswerIndex != null ? goToNextQuestion : null,
               label: Text(isLastQuestion ? "Finish" : "Next"),

@@ -13,13 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      /* title: 'Quizz game',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const QuizzPage(),
-      ), */
       // eliminar el banner de debug
       debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'Flutter Quizz'), //el title se puede quitar
